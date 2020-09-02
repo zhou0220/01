@@ -15,7 +15,7 @@ public class Body {
         this.imgFileName = name;
     }
 
-    public Body(double xP){ß
+    public Body(double xP){
 
     }
 }
