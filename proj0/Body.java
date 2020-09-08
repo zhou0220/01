@@ -50,6 +50,28 @@ public class Body {
         return F * dy / r;
     }
 
+    public double calcNetForceExertedByX(Body[] bodies) {
+        double xNetForce = 0;
+        for (Body body : bodies) {
+            if (body.equals(this)) {
+                continue;
+            }
+            xNetForce += calcForceExertedByX(body);
+        }
+        return xNetForce;
+    }
+
+    public double calcNetForceExertedByY(Body[] bodies) {
+        double yNetForce = 0;
+        for (Body body : bodies) {
+            if (body.equals(this)) {
+                continue;
+            }
+            yNetForce += calcForceExertedByY(body);
+        }
+        return yNetForce;
+    }
+
     public void update(double dt, double x_force, double y_force){
         double ax = x_force / mass;
         double ay = y_force / mass;
@@ -57,5 +79,9 @@ public class Body {
         yyVel = yyVel + ay * dt;
         xxPos = xxPos + xxVel * dt;
         yyPos = yyPos + yyVel * dt;
+    }
+
+    public void draw() {
+        StdDraw.picture(xxPos, yyPos, "images/" + imgFileName);
     }
 }
