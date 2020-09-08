@@ -15,7 +15,12 @@ public class Body {
         this.imgFileName = name;
     }
 
-    public Body(double xP){
-
+    public Body(Body b){
+        this.xxPos = b.xxPos;
+        this.yyPos = b.yyPos;
+        this.xxVel = b.xxVel;
+        this.yyVel = b.yyVel;
+        this.mass = b.mass;
+        this.imgFileName = b.imgFileName;
     }
 }
