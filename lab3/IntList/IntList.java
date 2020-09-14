@@ -11,11 +11,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -95,10 +95,27 @@ public class IntList {
     public static IntList catenate(IntList A, IntList B) {
         if (A == null) {
             return B;
-        }
-        else {
+        } else {
             return new IntList(A.first, catenate(A.rest, B));
         }
+    }
+
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, return null.
+     */
+    public static IntList reverse(IntList A) {
+        if (A == null) {
+            return null;
+        }
+        IntList res, temp;
+        for (res = null; A != null; A = temp) {
+            temp = A.rest;
+            A.rest = res;
+            res = A;
+        }
+        return res;
     }
 
 
