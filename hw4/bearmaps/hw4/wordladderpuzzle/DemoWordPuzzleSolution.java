@@ -4,6 +4,7 @@ package bearmaps.hw4.wordladderpuzzle;
 import bearmaps.hw4.LazySolver;
 import bearmaps.hw4.ShortestPathsSolver;
 import bearmaps.hw4.SolutionPrinter;
+import bearmaps.hw4.AStarSolver;
 
 /**
  * Showcases how the AStarSolver can be used for solving word ladders.
@@ -19,7 +20,7 @@ public class DemoWordPuzzleSolution {
 
         WordGraph wg = new WordGraph();
 
-        ShortestPathsSolver<String> solver = new LazySolver<>(wg, start, goal, 10);
+        ShortestPathsSolver<String> solver = new AStarSolver<>(wg, start, goal, 10);
         SolutionPrinter.summarizeSolution(solver, "->");
     }
 }
